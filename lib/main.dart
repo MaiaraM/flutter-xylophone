@@ -10,6 +10,18 @@ class XylophoneApp extends StatelessWidget {
     player.play('note$soundNumber.wav');
   }
 
+  Widget createButton(int soundNumber, Color color, {String text = ""}) {
+    return Expanded(
+      child: FlatButton(
+        child: Text(text),
+        onPressed: () {
+          playSound(soundNumber);
+        },
+        color: color,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,62 +31,13 @@ class XylophoneApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Expanded(
-                child: FlatButton(
-                  onPressed: () {
-                    playSound(1);
-                  },
-                  color: Colors.red,
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  onPressed: () {
-                    playSound(2);
-                  },
-                  color: Colors.orange,
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  onPressed: () {
-                    playSound(3);
-                  },
-                  color: Colors.yellowAccent,
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  onPressed: () {
-                    playSound(4);
-                  },
-                  color: Colors.green,
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  onPressed: () {
-                    playSound(5);
-                  },
-                  color: Colors.blue,
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  onPressed: () {
-                    playSound(6);
-                  },
-                  color: Colors.teal,
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  onPressed: () {
-                    playSound(7);
-                  },
-                  color: Colors.deepPurple,
-                ),
-              ),
+              createButton(1, Colors.red, text: "C - Dó"),
+              createButton(2, Colors.orange, text: "D - Ré"),
+              createButton(3, Colors.yellowAccent, text: "E - Mi"),
+              createButton(4, Colors.green, text: "F - Fá"),
+              createButton(5, Colors.teal, text: "G - Sol"),
+              createButton(6, Colors.blueAccent, text: "A - Lá"),
+              createButton(7, Colors.deepPurple, text: "B - Si "),
             ],
           ),
         ),
