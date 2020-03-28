@@ -6,17 +6,13 @@ void main() => runApp(XylophoneApp());
 class XylophoneApp extends StatelessWidget {
   final player = AudioCache();
 
-  void playSound(int soundNumber) {
-    player.play('note$soundNumber.wav');
-  }
+  void playSound(int soundNumber) => player.play('note$soundNumber.wav');
 
   Widget createButton(int soundNumber, Color color, {String text = ""}) {
     return Expanded(
       child: FlatButton(
         child: Text(text),
-        onPressed: () {
-          playSound(soundNumber);
-        },
+        onPressed: () => playSound(soundNumber),
         color: color,
       ),
     );
